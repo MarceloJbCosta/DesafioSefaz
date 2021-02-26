@@ -3,23 +3,33 @@ package com.cadastrousuario.model;
 public class Usuario {
 	
 	private Integer usuarioId;
+	private String usuarioNome;
 	private String usuarioEmail;
 	private String usuarioSenha;
 	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Usuario(Integer usuarioId, String usuarioEmail, String usuarioSenha) {
+
+	public Usuario(Integer usuarioId, String usuarioNome, String usuarioEmail, String usuarioSenha) {
 		super();
 		this.usuarioId = usuarioId;
+		this.usuarioNome = usuarioNome;
 		this.usuarioEmail = usuarioEmail;
 		this.usuarioSenha = usuarioSenha;
 	}
+
 	public Integer getUsuarioId() {
 		return usuarioId;
 	}
 	public void setUsuarioId(Integer usuarioId) {
 		this.usuarioId = usuarioId;
+	}
+	public String getUsuarioNome() {
+		return usuarioNome;
+	}
+	public void setUsuarioNome(String usarioNome) {
+		this.usuarioNome = usarioNome;
 	}
 	public String getUsuarioEmail() {
 		return usuarioEmail;
@@ -33,5 +43,6 @@ public class Usuario {
 	public void setUsuarioSenha(String usuarioSenha) {
 		this.usuarioSenha = usuarioSenha;
 	}
+
 	
 }

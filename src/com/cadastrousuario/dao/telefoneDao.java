@@ -1,5 +1,5 @@
 package com.cadastrousuario.dao;
 
-public class telefoneDao {
+public class TelefoneDao {
 
 }

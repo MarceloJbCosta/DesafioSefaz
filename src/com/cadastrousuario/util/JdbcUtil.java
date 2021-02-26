@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class JdbcUtil {
-	public class ConnectionFactory {
 		// parametros e conexao
 		
 		private String driver = "com.mysql.cj.jdbc.Driver";
@@ -12,11 +11,10 @@ public class JdbcUtil {
 		private String user = "root";
 		private String password = "root";
 		
-		// metodo de conexao
-		
-		private Connection conectar() {
+		public Connection conectar() {
 			Connection connection = null;
 			try {
+				//vai ler o driver de conexao
 				Class.forName(driver);
 				connection = DriverManager.getConnection(url, user, password);
 				return connection;
@@ -27,4 +25,4 @@ public class JdbcUtil {
 		}
 	}
 
-}
+
