@@ -15,7 +15,7 @@
 <input type="button" value="Novo Usuario" class="" onclick="window.location.href = 'cadastroUsuario.jsp';">
 
 <h3>Já sou Cadastrado</h3>
-<input type="button" value="Login" class="" onclick="window.location.href = 'login.jsp';">
+<input type="button" value="Login" class="" onclick="window.location.href ='login.jsp';">
 
 </center>
 

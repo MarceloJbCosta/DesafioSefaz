@@ -2,6 +2,7 @@
  * 
  */
 function validarCadastro() {
+
 	let nome = formUsuario.nome.value
 	let email = formUsuario.email.value
 	let senha = formUsuario.senha.value
@@ -41,5 +42,27 @@ function validarLogin() {
 		alert("Bem Vindo! ")
 	}
 
+}
+function validarAlteracao(){
+	let nome = formEditar.nome.value
+	let email = formEditar.email.value
+	let senha = formEditar.senha.value
+
+	if (nome === "") {
+		alert("Preencha o campo Nome")
+		formEditar.nome.focus()
+		return false
+	} else if (email === "") {
+		alert("Preencha o campo Email")
+		formEditar.email.focus()
+		return false
+	} else if (senha === "") {
+		alert("Preencha o campo Senha")
+		formEditar.senha.focus()
+		return false
+	} else {
+		document.forms["formEditar"].submit()
+		alert("Usuario alterado com sucesso!")
+	}
 
 }

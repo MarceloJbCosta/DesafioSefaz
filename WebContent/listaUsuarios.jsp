@@ -20,13 +20,16 @@
 <body>
 <center>
 <h1>Lista de Usuarios</h1>
-	<input type="button" value="Novo Usuario" class="" onclick="window.location.href = 'cadastroUsuario.jsp';">
+	<form name="formUsuario" action="insert">
+	<input type="button" value="Novo Usuario" class="" onclick="validarCadastro()" onclick="window.location.href='login.jsp';">
+	</form>
 	<table id="tabela">
 		<thead>
 			<tr>
 				<th>ID</th>
 				<th>NOME</th>
 				<th>EMAIL</th>
+				<th>Telfone</th>
 				<th>AÇÕES</th>
 				
 			</tr>
@@ -37,10 +40,14 @@
 					<td><%=lista.get(i).getUsuarioId() %></td>
 					<td><%=lista.get(i).getUsuarioNome() %></td>
 					<td><%=lista.get(i).getUsuarioEmail() %></td>
+					
+					<td><input type="button" value="Telefones" onclick="window.location.href = 'listarTelefone.jsp';"></td>
+					<td><a href="select?usuarioId=<%=lista.get(i).getUsuarioId()%>" ><button onclick ="window.location.href='editarUsuario.jsp';">Editar</button></a>      <a href="delete?usuarioId=<%=lista.get(i).getUsuarioId()%>" ><button onclick ="window.location.href='listarUsuario.jsp';">Excluir</button></a>
 				</tr>
 			<%} %>
 		</tbody>
 	</table>
+	<script src="resources/js/validador.js"></script>
 </center>
 
 </body>

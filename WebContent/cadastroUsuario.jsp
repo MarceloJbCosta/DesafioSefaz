@@ -24,7 +24,7 @@
 		</tr>
 		</table>
 		<br/>
-		<input type="button" value="Adicionar" class="" onclick="validarCadastro()" onclick="window.location.href = 'login.jsp';"> <input type="button" value="voltar" class="" onclick="window.location.href = 'bemVindo.jsp';">
+		<input type="button" value="Adicionar" class="" onclick="validarCadastro()" onclick="window.location.href ='bemVindo.jsp';"> <input type="button" value="voltar" class="" onclick="window.location.href = 'bemVindo.jsp';">
 	</form>
 	<script src="resources/js/validador.js"></script>
 	</center>

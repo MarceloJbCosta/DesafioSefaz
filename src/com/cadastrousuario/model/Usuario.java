@@ -44,5 +44,12 @@ public class Usuario {
 		this.usuarioSenha = usuarioSenha;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [usuarioId=" + usuarioId + ", usuarioNome=" + usuarioNome + ", usuarioEmail=" + usuarioEmail
+				+ "]";
+	}
+	
+
 	
 }

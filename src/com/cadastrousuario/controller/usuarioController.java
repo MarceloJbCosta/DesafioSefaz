@@ -13,7 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.cadastrousuario.dao.UsuarioDao;
 import com.cadastrousuario.model.*;
 
-@WebServlet(urlPatterns = { "/UsuarioController", "/main", "/insert", "/login"})
+
+@WebServlet(urlPatterns = { "/UsuarioController",
+							"/main", "/insert", "/login",
+							"/select", "/delete", "/editar"})
 
 public class UsuarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -28,11 +31,17 @@ public class UsuarioController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getServletPath();
-
+		System.out.println(action);
 
 		if(action.equals("/insert")) {
-			testeLogin(request, response);
+			novoUsuario(request, response);
 		}else if(action.equals("/login")){
+			usuarioLista(request, response);
+		}else if(action.equals("/select")){
+			editarUsuario(request, response);
+		}else if(action.equals("/delete")) {
+			usuarioLista(request, response);
+		}else if(action.equals("/editar")) {
 			usuarioLista(request, response);
 		}else {
 			response.sendRedirect("index.html");
@@ -45,14 +54,6 @@ public class UsuarioController extends HttpServlet {
 			throws ServletException, IOException {
 		//criando um obje que recebe os uauarios da DAO
 		ArrayList<Usuario> lista = userDao.listarUsuarios();
-		
-		for(int i =0; i < lista.size(); i++) {
-			System.out.println(lista.get(i).getUsuarioId());
-			System.out.println(lista.get(i).getUsuarioNome());
-			System.out.println(lista.get(i).getUsuarioEmail());
-			
-		}
-		
 		//encamihar a lista para o jsp
 		request.setAttribute("listaUsuarios", lista);
 		RequestDispatcher rd = request.getRequestDispatcher("listaUsuarios.jsp");
@@ -67,10 +68,8 @@ public class UsuarioController extends HttpServlet {
 		user.setUsuarioEmail(request.getParameter("email"));
 		user.setUsuarioSenha(request.getParameter("senha"));
 		
-		//inserir o metodo inserirUsuario
 		userDao.inserirUsuario(user);
-		//mandando para o jsp
-		response.sendRedirect("insert");
+		response.sendRedirect("cadastroUsuario.jsp");
 		
 	}
 	protected void testeLogin(HttpServletRequest request, HttpServletResponse response)
@@ -88,6 +87,28 @@ public class UsuarioController extends HttpServlet {
 //		RequestDispatcher rd = request.getRequestDispatcher("listaUsuarios.jsp");
 //		rd.forward(request, response);	
 //		
+	}
+	//editar usuarios
+	protected void editarUsuario(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("usuarioId"));
+		user = userDao.usuarioPorId(id);
+		System.out.println(user);
+		userDao.alterarUsuario(user);
+        request.setAttribute("usuarioId", user);
+        response.sendRedirect("editarUsuario.jsp");
+	}
+	
+	//excluir usuario
+	protected void excluirUsuario(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		  int userId = Integer.parseInt(request.getParameter("usuarioId"));
+		  System.out.println(userId);
+		  userDao.excluirUsuario(userId);
+         
+          request.setAttribute("listaUsuarios", userDao.listarUsuarios());
+          response.sendRedirect("delete");
+			
 	}
 
 }
