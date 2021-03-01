@@ -13,15 +13,15 @@ public class TelefoneDao {
 	private JdbcUtil connection = new JdbcUtil();
 	
 	//inserir
-	public void inserirTelefone(int usuarioId, Telefone telefone) {
+	public void inserirTelefone(int usuarioId, int ddd, String numero, String tipo) {
 		String inserir = "insert into telefones(ddd, numero, tipo, usuario_id) values (?,?,?,?)";
 		try {
 			Connection con = connection.conectar();
 			PreparedStatement pstm = con.prepareStatement(inserir);
 			
-				pstm.setInt(1, telefone.getTelefoneDdd());
-				pstm.setString(2, telefone.getTelefoneNumero());
-				pstm.setString(3, telefone.getTelefoneTipo());
+				pstm.setInt(1, ddd);
+				pstm.setString(2, numero);
+				pstm.setString(3, tipo);
 				pstm.setInt(4, usuarioId);
 				
 				pstm.executeUpdate();

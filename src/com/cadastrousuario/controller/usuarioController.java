@@ -113,24 +113,21 @@ public class UsuarioController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		int idusuario = Integer.parseInt(request.getParameter("usuario_id"));
-		telefone.setTelefoneDdd(Integer.parseInt(request.getParameter("ddd")));
-		telefone.setTelefoneNumero(request.getParameter("numero"));
-		telefone.setTelefoneTipo(request.getParameter("telefone"));
-		telefoneDao.inserirTelefone(idusuario, telefone);
 		
+		int ddd = Integer.parseInt(request.getParameter("ddd"));
+		String numero = request.getParameter("numero");
+		String tipo = request.getParameter("tipo");
 		
-		response.sendRedirect("login.jsp");
+		telefoneDao.inserirTelefone(idusuario, ddd, numero, tipo );
 		
-		
+
 	}
+	
 	protected void login(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 			RequestDispatcher rd = request.getRequestDispatcher("listaUsuarios.jsp");
 			rd.forward(request, response);
-		
-			response.sendRedirect("index.jsp");
-		
 
 	}
 

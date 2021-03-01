@@ -14,6 +14,15 @@ public class Telefone {
 	}
 
 
+	public Telefone(Integer telefoneDdd, String telefoneNumero, String telefoneTipo, int usuarioId) {
+		super();
+		this.telefoneDdd = telefoneDdd;
+		this.telefoneNumero = telefoneNumero;
+		this.telefoneTipo = telefoneTipo;
+		this.usuarioId = usuarioId;
+	}
+
+
 	public Telefone(Integer telefoneId, Integer telefoneDdd, String telefoneNumero, String telefoneTipo,
 			int usuarioId) {
 		super();

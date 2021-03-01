@@ -41,15 +41,12 @@ ArrayList<Telefone> lista = telefoneDao.listaTelefones();
 			</tr>
 			</table>
 			
-			</form>
-			<form name="telefone" class="select">
-				<INPUT TYPE="RADIO" NAME="fixo" VALUE="Fixo"> Fixo
-				<INPUT TYPE="RADIO" NAME="celular" VALUE="Celular"> Celular
-				<INPUT TYPE="checkbox" NAME="whatap" VALUE="whatap"> Whatsapp
-				
-			</form>
+				<INPUT TYPE="RADIO" NAME="tipo" VALUE="Fixo"> Fixo
+				<INPUT TYPE="RADIO" NAME="tipo" VALUE="Celular"> Celular
+				<INPUT TYPE="RADIO" NAME="tipo" VALUE="whatsapp"> whatsapp
 			
-		
+			</form>
+
 		<input type="button" onclick="window.location.href='listaUsuarios.jsp';" onclick="validarFone();"value="Adicionar" class="botao1"> <input type="button"
 			value="Voltar" onclick="window.location.href='listaUsuarios.jsp';"
 			class="botao3">

@@ -54,13 +54,14 @@ public class TelefoneController extends HttpServlet {
 	protected void adicionarTelefone(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		int idusuario = Integer.parseInt(request.getParameter("idusuario"));
+		int idusuario = Integer.parseInt(request.getParameter("usuario_id"));
 		
-		telefone.setTelefoneDdd(Integer.parseInt(request.getParameter("ddd")));
-		telefone.setTelefoneNumero(request.getParameter("numero"));
-		telefone.setTelefoneTipo(request.getParameter("telefone"));
-		telefoneDao.inserirTelefone(idusuario, telefone);
-		response.sendRedirect("cadastrarTelefone.jsp");
+		int ddd = Integer.parseInt(request.getParameter("ddd"));
+		String numero = request.getParameter("numero");
+		String tipo = request.getParameter("tipo");
+		telefoneDao.inserirTelefone(idusuario, ddd, numero, tipo );
+		
+		response.sendRedirect("login.jsp");
 	}
 
 	protected void excluirTelefone(HttpServletRequest request, HttpServletResponse response)
