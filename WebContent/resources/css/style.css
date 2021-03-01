@@ -1,8 +1,10 @@
 @charset "utf-8";
 
 
+
 body {
-	background-image: url('imagens/telaFundo.jpg');
+	background-color: #DCDCDC;
+	background-image: url('img/telaFundo.jpg');
 	margin-top: 50px;
 }
 
@@ -35,4 +37,38 @@ body {
 	margin-bottom: 10px;
 	border: 1px solid #66bbff;
 	border-radius: 5px;
+}
+
+.botao1{
+	text-decoration: none;
+	background-color: #0000FF;
+	padding: 5px 10px 5px 10px;
+	color: #fff;
+	font-size:1.2em;
+	font-weight: 700;
+	border-radius: 5px;
+	border: 0;
+	cursor: pointer;
+}
+.botao2{
+	text-decoration: none;
+	background-color: #FF0000;
+	padding: 5px 10px 5px 10px;
+	color: #fff;
+	font-size:1.2em;
+	font-weight: 700;
+	border-radius: 5px;
+	border: 0;
+	cursor: pointer;
+}
+.botao3{
+	text-decoration: none;
+	background-color: #FFA500;
+	padding: 5px 10px 5px 10px;
+	color: #fff;
+	font-size:1.2em;
+	font-weight: 700;
+	border-radius: 5px;
+	border: 0;
+	cursor: pointer;
 }

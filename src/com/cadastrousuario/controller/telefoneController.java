@@ -55,6 +55,7 @@ public class TelefoneController extends HttpServlet {
 			throws ServletException, IOException {
 		
 		int idusuario = Integer.parseInt(request.getParameter("idusuario"));
+		
 		telefone.setTelefoneDdd(Integer.parseInt(request.getParameter("ddd")));
 		telefone.setTelefoneNumero(request.getParameter("numero"));
 		telefone.setTelefoneTipo(request.getParameter("telefone"));

@@ -41,13 +41,13 @@
 					<td><%=lista.get(i).getUsuarioNome() %></td>
 					<td><%=lista.get(i).getUsuarioEmail() %></td>
 					
-					<td><input type="button" value="Telefones" onclick="window.location.href = 'listarTelefone.jsp';"></td>
-					<td><a href="select?usuarioId=<%=lista.get(i).getUsuarioId()%>" ><button onclick ="window.location.href='editarUsuario.jsp';">Editar</button></a>      <a href="delete?usuarioId=<%=lista.get(i).getUsuarioId()%>"><button onclick ="window.location.href='listarUsuarios.jsp';">Excluir</button></a>
+					<td><input type="button" class="botao3" value="Telefones" onclick="window.location.href='listarTelefone.jsp';"></td>
+					<td><a href="select?usuarioId=<%=lista.get(i).getUsuarioId()%>" ><button class="botao1" onclick ="window.location.href='editarUsuario.jsp';">Editar</button></a>      <a href="delete?usuarioId=<%=lista.get(i).getUsuarioId()%>"><button class ="botao2" onclick ="window.location.href='listarUsuarios.jsp';">Excluir</button></a>
 				</tr>
 			<%} %>
 		</tbody>
-
 	</table>
+	<input type="button" value="voltar" class="botao1" onclick="window.location.href = 'bemVindo.jsp';">
 </center>
 
 </body>

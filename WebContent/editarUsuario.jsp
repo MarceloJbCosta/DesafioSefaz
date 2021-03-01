@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 	<%@page import ="com.cadastrousuario.model.*" %>
 	<%
-	//Usuario user = (Usuario) request.getAttribute("usuario");
+	Usuario user = (Usuario) request.getAttribute("usuarioId");
 	%>
 <html>
 <head>
@@ -18,9 +18,9 @@
 	<table>
 	<h1>Alterando Usuário</h1>
 		<form action="editar" name="formEditar">
-		<tr>
-			<td><input type="hidden" name="id" ></td>
-		</tr>
+			<tr>
+				<td><input type="hidden" value="<%=user.getUsuarioId()%>" name="usuarioId" ></td>
+			</tr>
 	<tr>	
 		<td>Nome : <input type="text" class="CaixaTx"  name="nome" placeholder="nome" /></td>
 	</tr>
@@ -32,8 +32,8 @@
 	<br/><br/>
 	</tr>
 	</table>
-		<input type="button" onclick="validarAlteracao()" value="Alterar" onclick="window.location.href='listaUsuarios.jsp';" /> 	
-		<input type="button" value="voltar"	onclick="window.location.href='login.jsp';" />
+		<input type="button" class="botao1" onclick="validarAlteracao()" value="Alterar" onclick="window.location.href='listaUsuarios.jsp';" /> 	
+		<input type="button" class="botao3" value="voltar"	onclick="window.location.href='login.jsp';" />
 		</form>
 		<script src="resources/js/validar.js"></script>
 		

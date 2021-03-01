@@ -6,8 +6,9 @@
 
 <!DOCTYPE html>
 <%
-UsuarioDao usuarioDao = new UsuarioDao();
-ArrayList<Usuario> lista = usuarioDao.listarUsuarios();
+TelefoneDao telefoneDao = new TelefoneDao();
+ArrayList<Telefone> lista = telefoneDao.listaTelefones();
+
 %>
 <html lang="pt-br">
 <head>
@@ -15,11 +16,10 @@ ArrayList<Usuario> lista = usuarioDao.listarUsuarios();
 <link rel="stylesheet" href="resources/css/style.css">
 <title>Adicionar Telefone</title>
 </head>
-
 <body>
 <center>
 <h1>Adicionar Telefone</h1>
-	
+		<form name="formFone" action="addfone">
 		<table>
 			<%
 				for (int i = 0; i < lista.size(); i++) {
@@ -28,7 +28,7 @@ ArrayList<Usuario> lista = usuarioDao.listarUsuarios();
 				<td><input type="hidden" value="<%=lista.get(i).getUsuarioId()%>" name="usuario_id"></td>
 			</tr>
 			<%}	%>
-				<form name="formFone" action="addfone">
+				
 			<tr>
 				<td>DDD <input type="text" name="ddd" maxlength="3"
 					placeholder="DDD" required name="ddd" class="DDD">
@@ -43,15 +43,16 @@ ArrayList<Usuario> lista = usuarioDao.listarUsuarios();
 			
 			</form>
 			<form name="telefone" class="select">
-				<INPUT TYPE="RADIO" NAME="Fixo" VALUE="Fixo"> Fixo
-				<INPUT TYPE="RADIO" NAME="Celular" VALUE="Celular"> Celular
+				<INPUT TYPE="RADIO" NAME="fixo" VALUE="Fixo"> Fixo
+				<INPUT TYPE="RADIO" NAME="celular" VALUE="Celular"> Celular
 				<INPUT TYPE="checkbox" NAME="whatap" VALUE="whatap"> Whatsapp
+				
 			</form>
 			
 		
-		<input type="button" onclick="validarFone();"value="Adicionar" class=""> <input type="button"
+		<input type="button" onclick="window.location.href='listaUsuarios.jsp';" onclick="validarFone();"value="Adicionar" class="botao1"> <input type="button"
 			value="Voltar" onclick="window.location.href='listaUsuarios.jsp';"
-			class="">
+			class="botao3">
 </body>
 </center>
 <script src="resources/js/validar.js"></script>

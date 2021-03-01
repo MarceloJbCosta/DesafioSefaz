@@ -42,7 +42,7 @@
 			</tr>
 		
 		<br/>
-		<input type="button" value="Adicionar" class="" onclick="validarCadastro()" onclick="window.location.href ='bemVindo.jsp';"> <input type="button" value="voltar" class="" onclick="window.location.href = 'bemVindo.jsp';">
+		<input type="button" value="Adicionar" class="botao1" onclick="validarCadastro()" onclick="window.location.href ='bemVindo.jsp';"> <input type="button" value="voltar" class="botao3" onclick="window.location.href = 'bemVindo.jsp';">
 	</form>
 	<script src="resources/js/validar.js"></script>
 	</center>

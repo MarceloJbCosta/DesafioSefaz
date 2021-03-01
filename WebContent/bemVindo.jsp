@@ -12,10 +12,10 @@
 <h1>Bem-Vindo</h1>
 
 
-<input type="button" value="Novo Usuario" class="" onclick="window.location.href = 'cadastroUsuario.jsp';">
+<input type="button" value="Novo Usuario" class="botao1" onclick="window.location.href = 'cadastroUsuario.jsp';">
 
-<h3>Já sou Cadastrado</h3>
-<input type="button" value="Login" class="" onclick="window.location.href ='login.jsp';">
+<h3>Já tenho Cadastro</h3>
+<input type="button" value="Login" class="botao3" onclick="window.location.href ='login.jsp';">
 
 </center>
 

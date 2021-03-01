@@ -37,15 +37,15 @@ ArrayList<Telefone> lista = telefoneDao.listaTelefones();
 					<td><%=lista.get(i).getTelefoneNumero()%></td>
 					<td><%=lista.get(i).getTelefoneTipo()%></td>
 					<td><a href="excluirfone?id=<%=lista.get(i).getUsuarioId() %>"
-						onclick="window.location.href = 'listarUsuarios.jsp';"><button class="">Excluir</button></a></td>
+						onclick="window.location.href = 'listarUsuarios.jsp';"><button class="botao2">Excluir</button></a></td>
 				</tr>
 				<%
 				}
 				%>
 			</tbody>
 		</table>
-		<input type="button" value="voltar" class="" onclick="window.location.href = 'bemVindo.jsp';">
-		<imput type="button" onclick="window.location.href = 'cadastrarTelefone.jsp';"><button class="">Adidionar telefone</button>
+		<input type="button" value="voltar" class="botao1" onclick="window.location.href = 'bemVindo.jsp';">
+		<imput type="button" onclick="window.location.href = 'cadastrarTelefone.jsp';"><button class="botao3">Adicionar Telefone</button>
 					
 </body>
 </html>

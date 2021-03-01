@@ -20,7 +20,7 @@
 		</tr>
 		</table>
 		<br/>
-		<input type="button" value="entrar" class="" onclick= "validarLogin()" onclick="window.location.href = 'listaUsuarios.jsp';"> <input type="button" value="voltar" class="" onclick="window.location.href = 'bemVindo.jsp';">
+		<input type="button" value="entrar" class="botao1" onclick= "validarLogin()" onclick="window.location.href = 'listaUsuarios.jsp';"> <input type="button" value="voltar" class="botao3" onclick="window.location.href = 'bemVindo.jsp';">
 	</form>
 	<script src="resources/js/validar.js"></script>
 	</center>

@@ -10,7 +10,7 @@
 <body>
 	<center>
 		<h1>Usuarios</h1>
-			<input type="button" value="Entrar" class="" onclick="window.location.href = 'bemVindo.jsp';">
+			<input type="button" value="Entrar" class="botao1" onclick="window.location.href = 'bemVindo.jsp';">
 	</center>
 </body>
 </html>
