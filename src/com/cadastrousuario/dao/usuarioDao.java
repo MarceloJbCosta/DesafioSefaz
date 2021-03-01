@@ -16,14 +16,13 @@ public class UsuarioDao {
 
 	//inserir
 	public void inserirUsuario(Usuario user) {
-		String inserir = "insert into usuario(nome,email,senha) values (?,?,?)";
+		String inserir = "insert into usuario(nome,email,senha) values (?,?,?,)";
 		try {
 			Connection con = connection.conectar();
 			PreparedStatement pstm = con.prepareStatement(inserir);
 			pstm.setString(1, user.getUsuarioNome());
 			pstm.setString(2, user.getUsuarioEmail());
 			pstm.setString(3, user.getUsuarioSenha());
-			
 			pstm.executeUpdate();
 			con.close();
 		} catch (Exception e) {
@@ -55,29 +54,28 @@ public class UsuarioDao {
 	}
 	//excluir
 	public void excluirUsuario(int id) {
-		String deletar = "delete from usuario where id = ?";
+		String deletar = "delete from usuario where id=?";
 		try {
 			Connection con = connection.conectar();
 			PreparedStatement pstm = con.prepareStatement(deletar);
 			pstm.setInt(1, id);
 			pstm.executeUpdate();
-			
 			con.close();
-			
 		} catch (Exception e) {
 			System.out.println(e);		
 			}
 	}
+	
 	//alterar
 	public void alterarUsuario(Usuario usuario) {
-		String alterar = ("update usuario set nome=?, email=?, senha=? where id=?");
+		String alterar = "update usuario set nome=?, email=?, senha=? where id=?";
 		try {
 			Connection con = connection.conectar();
 			PreparedStatement pstm = con.prepareStatement(alterar);
 			
 			pstm.setString(1, usuario.getUsuarioNome());
 			pstm.setString(2, usuario.getUsuarioEmail());
-			pstm.setString(3, usuario.getUsuarioSenha());;
+			pstm.setString(3, usuario.getUsuarioSenha());
 			pstm.setInt(4, usuario.getUsuarioId());
 			
 			pstm.executeUpdate();

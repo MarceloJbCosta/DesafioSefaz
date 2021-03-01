@@ -1,35 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+	<%@page import ="com.cadastrousuario.model.*" %>
+	<%
+	//Usuario user = (Usuario) request.getAttribute("usuario");
+	%>
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="resources/css/style.css">
 
 <title>Aterar Usuário</title>
 </head>
 <body>
 	
-	<center>
+	<center style="margin-top: 50px">
+	<table>
 	<h1>Alterando Usuário</h1>
-		<form action='editar' name="formEditar">
-
-			Nome : <input type="text" name="nome"
-				value="<c:out value="${user.nome}" />" /> <br /> 
-			Email : <input
-				type="text" name="e=mail"
-				value="<c:out value="${user.email}" />" /> <br /> 
-			Senha : <input
-				type="text" name="senha"
-				value="<c:out value="${user.senha}" />" /> <br /> 
-				<br /> 
-				<input				
-				type="button" value="Alterar" onclick="validarAlteracao()"
-				onclick="window.location.href='listaUsuarios.jsp';" /> 	<input				
-				type="button" value="voltar"
-				onclick="window.location.href='login.jsp';" />
+		<form action="editar" name="formEditar">
+		<tr>
+			<td><input type="hidden" name="id" ></td>
+		</tr>
+	<tr>	
+		<td>Nome : <input type="text" class="CaixaTx"  name="nome" placeholder="nome" /></td>
+	</tr>
+	<tr>
+		<td>Email : <input type="text" class="CaixaTx" name="email" placeholder="e-mail" /></td>
+	</tr>
+	<tr>
+		<td>Senha : <input type="password" class="CaixaTx" name="senha" placeholder="senha" /></td> 
+	<br/><br/>
+	</tr>
+	</table>
+		<input type="button" onclick="validarAlteracao()" value="Alterar" onclick="window.location.href='listaUsuarios.jsp';" /> 	
+		<input type="button" value="voltar"	onclick="window.location.href='login.jsp';" />
 		</form>
-		<script src="resources/js/validador.js"></script>
+		<script src="resources/js/validar.js"></script>
+		
 	</center>
 </body>
 

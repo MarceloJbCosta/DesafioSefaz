@@ -14,6 +14,7 @@ import com.cadastrousuario.dao.UsuarioDao;
 import com.cadastrousuario.model.*;
 
 
+
 @WebServlet(urlPatterns = { "/UsuarioController",
 							"/main", "/insert", "/login",
 							"/select", "/delete", "/editar"})
@@ -40,9 +41,9 @@ public class UsuarioController extends HttpServlet {
 		}else if(action.equals("/select")){
 			editarUsuario(request, response);
 		}else if(action.equals("/delete")) {
-			usuarioLista(request, response);
+			excluirUsuario(request, response);
 		}else if(action.equals("/editar")) {
-			usuarioLista(request, response);
+			editarUsuario(request, response);
 		}else {
 			response.sendRedirect("index.html");
 		}
@@ -69,45 +70,44 @@ public class UsuarioController extends HttpServlet {
 		user.setUsuarioSenha(request.getParameter("senha"));
 		
 		userDao.inserirUsuario(user);
-		response.sendRedirect("cadastroUsuario.jsp");
+		//response.sendRedirect("login.jsp");
 		
 	}
 	protected void testeLogin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		//criando um obje que recebe os uauarios da DAO
-//		ArrayList<Usuario> lista = userDao.listarUsuarios();
-//		for(int i =0; i < lista.size(); i++) {
-//			System.out.println(lista.get(i).getUsuarioId());
-//			System.out.println(lista.get(i).getUsuarioNome());
-//			System.out.println(lista.get(i).getUsuarioEmail());
-//			
-//		}
-//		//encamihar a lista para o jsp
-//		request.setAttribute("listaUsuarios", lista);
-//		RequestDispatcher rd = request.getRequestDispatcher("listaUsuarios.jsp");
-//		rd.forward(request, response);	
-//		
+		
 	}
+
 	//editar usuarios
 	protected void editarUsuario(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("usuarioId"));
 		user = userDao.usuarioPorId(id);
 		System.out.println(user);
+		
 		userDao.alterarUsuario(user);
         request.setAttribute("usuarioId", user);
-        response.sendRedirect("editarUsuario.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("editarUsuario.jsp");
+        rd.forward(request, response);
+        
+       
 	}
 	
 	//excluir usuario
 	protected void excluirUsuario(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+
 		  int userId = Integer.parseInt(request.getParameter("usuarioId"));
-		  System.out.println(userId);
 		  userDao.excluirUsuario(userId);
+		  System.out.println(userId);
          
-          request.setAttribute("listaUsuarios", userDao.listarUsuarios());
-          response.sendRedirect("delete");
+		  response.sendRedirect("listaUsuarios.jsp");
+		  
+          //request.setAttribute("listaUsuarios", userDao.listarUsuarios());
+       
+          
+          
 			
 	}
 

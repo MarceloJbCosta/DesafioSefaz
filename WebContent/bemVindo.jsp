@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>Novo Usuario</title>
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
 <center>

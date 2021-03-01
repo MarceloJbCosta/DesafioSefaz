@@ -1,46 +1,82 @@
 package com.cadastrousuario.model;
 
 public class Telefone {
-	private Integer foneId;
-	private Integer foneDdd;
-	private String foneNumero;
-	private String foneTipo;
+	private Integer telefoneId;
+	private Integer telefoneDdd;
+	private String telefoneNumero;
+	private String telefoneTipo;
+	private int usuarioId;
+	
+	
 	public Telefone() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Telefone(Integer foneId, Integer foneDdd, String foneNumero, String foneTipo) {
+
+
+	public Telefone(Integer telefoneId, Integer telefoneDdd, String telefoneNumero, String telefoneTipo,
+			int usuarioId) {
 		super();
-		this.foneId = foneId;
-		this.foneDdd = foneDdd;
-		this.foneNumero = foneNumero;
-		this.foneTipo = foneTipo;
+		this.telefoneId = telefoneId;
+		this.telefoneDdd = telefoneDdd;
+		this.telefoneNumero = telefoneNumero;
+		this.telefoneTipo = telefoneTipo;
+		this.usuarioId = usuarioId;
 	}
-	public Integer getFoneId() {
-		return foneId;
+
+
+	public Integer getTelefoneId() {
+		return telefoneId;
 	}
-	public void setFoneId(Integer foneId) {
-		this.foneId = foneId;
+
+
+	public void setTelefoneId(Integer telefoneId) {
+		this.telefoneId = telefoneId;
 	}
-	public Integer getFoneDdd() {
-		return foneDdd;
+
+
+	public Integer getTelefoneDdd() {
+		return telefoneDdd;
 	}
-	public void setFoneDdd(Integer foneDdd) {
-		this.foneDdd = foneDdd;
+
+
+	public void setTelefoneDdd(Integer telefoneDdd) {
+		this.telefoneDdd = telefoneDdd;
 	}
-	public String getFoneNumero() {
-		return foneNumero;
+
+
+	public String getTelefoneNumero() {
+		return telefoneNumero;
 	}
-	public void setFoneNumero(String foneNumero) {
-		this.foneNumero = foneNumero;
+
+
+	public void setTelefoneNumero(String telefoneNumero) {
+		this.telefoneNumero = telefoneNumero;
 	}
-	public String getFoneTipo() {
-		return foneTipo;
+
+
+	public String getTelefoneTipo() {
+		return telefoneTipo;
 	}
-	public void setFoneTipo(String foneTipo) {
-		this.foneTipo = foneTipo;
+
+
+	public void setTelefoneTipo(String telefoneTipo) {
+		this.telefoneTipo = telefoneTipo;
 	}
+
+
+	public int getUsuarioId() {
+		return usuarioId;
+	}
+
+
+	public void setUsuarioId(int usuarioId) {
+		this.usuarioId = usuarioId;
+	}
+
 	
 	
+	
+
 
 }

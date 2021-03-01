@@ -1,33 +1,72 @@
 package com.cadastrousuario.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class telefoneController
- */
-@WebServlet("/TelefoneController")
+import com.cadastrousuario.dao.TelefoneDao;
+import com.cadastrousuario.dao.UsuarioDao;
+import com.cadastrousuario.model.Telefone;
+import com.cadastrousuario.model.Usuario;
+
+
+@WebServlet(urlPatterns = { "/TelefoneController", "/telefone", "/addFone", "/excluirFone" })
 public class TelefoneController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public TelefoneController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	Usuario usuario = new Usuario();
+	UsuarioDao usuarioDao = new UsuarioDao();
+	Telefone telefone = new Telefone();
+	TelefoneDao telefoneDao = new TelefoneDao();
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public TelefoneController() {
+		super();
 	}
 
-}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String action = request.getServletPath();
+		if(action.equals("/telefone")) {
+			listarTelefones(request, response);
+		}else if(action.equals("/addFone")) {
+			adicionarTelefone(request, response);
+		}else if(action.equals("excluirFone")) {
+			excluirTelefone(request, response);
+		}else {	
+			response.sendRedirect("index.jsp");
+		}
+	}
+
+	protected void listarTelefones(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("usuario_id"));
+		ArrayList<Telefone> listaTelefones = telefoneDao.listaTelefonesById(id);
+		request.setAttribute("listaTelefones", listaTelefones);
+		RequestDispatcher rd = request.getRequestDispatcher("listaTelefone.jsp");
+		rd.forward(request, response);
+	}
+
+	protected void adicionarTelefone(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		int idusuario = Integer.parseInt(request.getParameter("idusuario"));
+		telefone.setTelefoneDdd(Integer.parseInt(request.getParameter("ddd")));
+		telefone.setTelefoneNumero(request.getParameter("numero"));
+		telefone.setTelefoneTipo(request.getParameter("telefone"));
+		telefoneDao.inserirTelefone(idusuario, telefone);
+		response.sendRedirect("cadastrarTelefone.jsp");
+	}
+
+	protected void excluirTelefone(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+			int id = Integer.parseInt(request.getParameter("id"));
+			telefoneDao.deletarTelefone(id);
+			response.sendRedirect("cadastarTelefone.jsp");
+		}
+	}

@@ -4,8 +4,8 @@
 <html lang="pt-br">
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="resources/css/style.css">
 <title>Usuarios</title>
-<link rel="stylesheet" href="">
 </head>
 <body>
 	<center>
